@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import appConfig from '../configs/app.config';
 import pgConfig from '../configs/pg.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import UsersModule from '../modules/users/user.module';
 
 const ENV = process.env.NODE_ENV;
 
@@ -26,9 +27,10 @@ const ENV = process.env.NODE_ENV;
         password: service.get<string>('pgConfig.password'),
         database: service.get<string>('pgConfig.database'),
         autoLoadEntities: true,
-        synchronize: ENV === 'development' ? true : false
-      })
-    })
+        synchronize: ENV === 'development' ? true : false,
+      }),
+    }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
