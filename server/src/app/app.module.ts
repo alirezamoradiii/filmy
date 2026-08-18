@@ -6,6 +6,7 @@ import appConfig from '../configs/app.config';
 import pgConfig from '../configs/pg.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import UsersModule from '../modules/users/user.module';
+import AuthModule from '../modules/auth/auth.module';
 
 const ENV = process.env.NODE_ENV;
 
@@ -31,6 +32,7 @@ const ENV = process.env.NODE_ENV;
       }),
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
