@@ -5,7 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import appConfig from '../configs/app.config';
 import pgConfig from '../configs/pg.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import UsersModule from '../modules/users/user.module';
+import UsersModule from '../modules/users/users.module';
 import AuthModule from '../modules/auth/auth.module';
 
 const ENV = process.env.NODE_ENV;
