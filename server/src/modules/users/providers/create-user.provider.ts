@@ -1,5 +1,7 @@
 import {
   ConflictException,
+  forwardRef,
+  Inject,
   Injectable,
   InternalServerErrorException,
 } from '@nestjs/common';
@@ -15,6 +17,7 @@ export default class CreateUserProvider {
     @InjectRepository(UserModel)
     private readonly userModel: Repository<UserModel>,
 
+    @Inject(forwardRef(() => HashingProvider))
     private readonly hashingProvider: HashingProvider,
   ) {}
 
